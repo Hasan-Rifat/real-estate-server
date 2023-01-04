@@ -26,6 +26,7 @@ app.get("/", (req, res) => {
   res.send("hello world...");
 });
 
+// 404 route
 app.all("*", (req, res) => {
   res.send("not found");
 });
