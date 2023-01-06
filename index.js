@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const { connectToServer } = require("./utils/db.connect");
+const user = require("./routers/v1/user.router");
 
 // payment
 const app = express();
@@ -22,6 +23,8 @@ connectToServer((error) => {
 });
 
 // all routes
+app.use("/api/v1/user", user);
+
 app.get("/", (req, res) => {
   res.send("hello world...");
 });
