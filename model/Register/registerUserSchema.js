@@ -15,6 +15,7 @@ const registerUserSchema = new mongoose.Schema({
     type: String,
     require: [true, "email is required"],
     trim: true,
+    unique: true,
   },
   password: {
     type: String,
