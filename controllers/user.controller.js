@@ -6,7 +6,8 @@ module.exports.getUser = async (req, res) => {
   res.send("result");
 };
 module.exports.createUser = async (req, res) => {
-  /* const data = req.body;
-  const result = await db.collection("users").insertOne(data); */
+  const data = req.body;
+  console.log(data);
+  // const result = await db.collection("users").insertOne(data);
   res.send("result");
 };
