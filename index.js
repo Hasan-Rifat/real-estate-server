@@ -1,8 +1,9 @@
 const express = require("express");
 const cors = require("cors");
-const { connectToServer } = require("./utils/db.connect");
+require("dotenv").config();
 const user = require("./routers/v1/user.router");
 const mongoose = require("mongoose");
+const dbConnect = require("./utils/db.Connect");
 
 // payment
 const app = express();
@@ -13,11 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 // mongodb connect using mongoose
-mongoose
-  .connect(process.env.ATLAS_URI)
-  .then(() =>
-    app.listen(port, () => console.log(`Example app listening on port ${port}`))
-  );
+dbConnect();
 
 // all routes
 app.use("/api/v1/user", user);
@@ -30,3 +27,5 @@ app.get("/", (req, res) => {
 app.all("*", (req, res) => {
   res.send("not found");
 });
+
+app.listen(port, () => console.log(`Example app listening on port ${port}`));
