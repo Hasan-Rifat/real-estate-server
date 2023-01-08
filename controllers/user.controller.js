@@ -1,11 +1,8 @@
-const {
-  getUserService,
-  createUserService,
-} = require("../services/userService");
+const services = require("../services/userService");
 
 module.exports.getUser = async (req, res) => {
   try {
-    const result = await getUserService();
+    const result = await services.getUserService();
     res.status(200).json({
       status: "success",
       message: "Data get successfully",
@@ -22,7 +19,7 @@ module.exports.getUser = async (req, res) => {
 
 module.exports.createUser = async (req, res) => {
   try {
-    const result = await createUserService(req.body);
+    const result = await services.createUserService(req.body);
     res.status(200).json({
       status: "success",
       message: "Data inserted successfully!",
