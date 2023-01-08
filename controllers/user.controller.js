@@ -1,12 +1,28 @@
-const RegisterUserModel = require("../model/Register/RegisterUserModel");
+const {
+  getUserService,
+  createUserService,
+} = require("../services/userService");
 
 module.exports.getUser = async (req, res) => {
-  /* const db = getDb();
-  const result = await db.collection("user").find({}).toArray(); */
+  try {
+    const result = await getUserService();
+    res.status(200).json({
+      status: "success",
+      message: "Data get successfully",
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "fail",
+      message: "technical error",
+      error: error.message,
+    });
+  }
 };
+
 module.exports.createUser = async (req, res) => {
   try {
-    const result = await RegisterUserModel.create(req.body);
+    const result = await createUserService(req.body);
     res.status(200).json({
       status: "success",
       message: "Data inserted successfully!",
