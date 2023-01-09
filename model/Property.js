@@ -148,7 +148,7 @@ const propertySchema = mongoose.Schema({
     type: String,
     require: [true, "washer is required"],
   },
-  WiFi: {
+  wiFi: {
     type: String,
     require: [true, "WiFi is required"],
   },
