@@ -1,8 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
+const property = require("./routers/v1/property.router");
 const user = require("./routers/v1/user.router");
-const mongoose = require("mongoose");
 const dbConnect = require("./utils/db.Connect");
 
 // payment
@@ -17,6 +17,11 @@ app.use(express.json());
 dbConnect();
 
 // all routes
+
+// property api
+app.use("/api/v1/property", property);
+
+// user api
 app.use("/api/v1/user", user);
 
 app.get("/", (req, res) => {
