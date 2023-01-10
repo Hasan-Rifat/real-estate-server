@@ -17,13 +17,13 @@ app.use(express.json());
 dbConnect();
 
 // all routes
-
 // property api
 app.use("/api/v1/property", property);
 
 // user api
 app.use("/api/v1/user", user);
 
+// home router
 app.get("/", (req, res) => {
   res.send("hello world...");
 });
