@@ -1,9 +1,19 @@
 const mongoose = require("mongoose");
 
 const propertySchema = mongoose.Schema({
-  propertyTitle: {
+  feature: {
     type: String,
-    require: [true, "property Title is required"],
+    require: [true, "feature is required"],
+    trim: true,
+  },
+  img: {
+    type: String,
+    require: [true, "img is required"],
+    trim: true,
+  },
+  title: {
+    type: String,
+    require: [true, "title is required"],
     trim: true,
   },
   description: {
@@ -11,39 +21,39 @@ const propertySchema = mongoose.Schema({
     require: [true, "description is required"],
     trim: true,
   },
-  propertyType: {
+  address: {
     type: String,
-    require: [true, "property type is required"],
+    require: [true, "address is required"],
     trim: true,
   },
-  status: {
+  city: {
     type: String,
-    require: [true, "status is required"],
+    require: [true, "city is required"],
     trim: true,
   },
-  label: {
+  state: {
     type: String,
-    require: [true, "label is required"],
+    require: [true, "State is required"],
     trim: true,
   },
-  saleOrRentPrice: {
-    type: Number,
-    require: [true, "sale Or RentPrice is required"],
-    trim: true,
-  },
-  secondPrice: {
-    type: Number,
-    require: [true, "second Price is required"],
-    trim: true,
-  },
-  afterThePrice: {
-    type: Number,
-    require: [true, "after The Price is required"],
-    trim: true,
-  },
-  imageUrl: {
+  zipPostalCode: {
     type: String,
-    require: [true, "image url is required"],
+    require: [true, "zipPostalCode is required"],
+    trim: true,
+  },
+  area: {
+    type: String,
+    require: [true, "Area is required"],
+    trim: true,
+  },
+  country: {
+    type: String,
+    require: [true, "country is required"],
+    trim: true,
+  },
+  apartment: {
+    type: String,
+    require: [true, "apartment is required"],
     trim: true,
   },
   bedrooms: {
@@ -53,148 +63,48 @@ const propertySchema = mongoose.Schema({
   },
   bathrooms: {
     type: Number,
-    require: [true, "bathrooms is required"],
+    require: [true, "Bathrooms is required"],
     trim: true,
   },
-  areaSize: {
+  garage: {
     type: Number,
-    require: [true, "areaSize is required"],
-    trim: true,
-  },
-  sizePostfix: {
-    type: String,
-    require: [true, "size Postfix is required"],
-    trim: true,
-  },
-  landArea: {
-    type: String,
-    require: [true, "landArea is required"],
-    trim: true,
-  },
-  landAreaSizePostfix: {
-    type: String,
-    require: [true, "landArea Size Postfix is required"],
-    trim: true,
-  },
-  garages: {
-    type: Number,
-    require: [true, "garages is required"],
-    trim: true,
-  },
-  garageSize: {
-    type: String,
-    require: [true, "garage Size is required"],
-    trim: true,
-  },
-  propertyID: {
-    type: String,
-    require: [true, "property ID is required"],
+    require: [true, "Garage is required"],
     trim: true,
   },
   yearBuilt: {
     type: Number,
-    require: [true, "yearBuilt is required"],
+    require: [true, "YearBuilt is required"],
     trim: true,
   },
-  airConditioning: {
+  squareFt: {
     type: String,
-    require: [true, "Air Conditioning is required"],
+    require: [true, "squareFt is required"],
+    trim: true,
   },
-  barbeque: {
+  garageSize: {
     type: String,
-    require: [true, "Barbeque is required"],
+    require: [true, "GarageSize is required"],
+    trim: true,
   },
-  dryer: {
-    type: String,
-    require: [true, "Dryer is required"],
-  },
-  gym: {
-    type: String,
-    require: [true, "Gym is required"],
-  },
-  laundry: {
-    type: String,
-    require: [true, "Laundry is required"],
-  },
-  lawn: {
-    type: String,
-    require: [true, "Lawn is required"],
-  },
-  microwave: {
-    type: String,
-    require: [true, "Microwave is required"],
-  },
-  outdoorShower: {
-    type: String,
-    require: [true, "outdoorShower is required"],
-  },
-  Refrigerator: {
-    type: String,
-    require: [true, "Refrigerator is required"],
-  },
-  Sauna: {
-    type: String,
-    require: [true, "Sauna is required"],
-  },
-  swimmingPool: {
-    type: String,
-    require: [true, "Swimming Pool is required"],
-  },
-  tVCable: {
-    type: String,
-    require: [true, "TV Cable Pool is required"],
-  },
-  washer: {
-    type: String,
-    require: [true, "washer is required"],
-  },
-  wiFi: {
-    type: String,
-    require: [true, "WiFi is required"],
-  },
-  windowCoverings: {
-    type: String,
-    require: [true, "Window Coverings is required"],
-  },
-  address: {
-    type: String,
-    require: [true, "address is required"],
-  },
-  country: {
-    type: String,
-    require: [true, "country is required"],
-  },
-  stateCounty: {
-    type: String,
-    require: [true, "stateCounty is required"],
-  },
-  city: {
-    type: String,
-    require: [true, "city is required"],
-  },
-  area: {
-    type: String,
-    require: [true, "area is required"],
-  },
-  zipOrPostalCode: {
-    type: String,
-    require: [true, "zip Or Postal Code is required"],
-  },
-  mapLatitude: {
+  price: {
     type: Number,
-    require: [true, "map Latitude is required"],
+    require: [true, "price is required"],
+    trim: true,
   },
-  mapLongitude: {
-    type: Number,
-    require: [true, "map Longitude is required"],
-  },
-  featured: {
+  propertySize: {
     type: String,
-    require: [true, "featured is required"],
+    require: [true, "Property Size is required"],
+    trim: true,
   },
-  viewProperty: {
+  propertyType: {
     type: String,
-    require: [true, "view Property is required"],
+    require: [true, "Property Type is required"],
+    trim: true,
+  },
+  propertyStatus: {
+    type: String,
+    require: [true, "Property Status is required"],
+    trim: true,
   },
 });
 
