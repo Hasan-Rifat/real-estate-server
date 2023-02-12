@@ -4,6 +4,10 @@ exports.getPropertyService = async () => {
   const data = await Property.where({});
   return data;
 };
+exports.getPropertyServiceById = async (id) => {
+  const data = await Property.where({ _id: id });
+  return data;
+};
 
 exports.createPropertyService = async (data) => {
   const result = await Property.create(data);
