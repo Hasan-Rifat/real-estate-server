@@ -1,7 +1,7 @@
 const RegisterUser = require("../model/RegisterUser");
 
-exports.getUserService = async () => {
-  const data = await RegisterUser.where({});
+exports.getUserService = async (email, password) => {
+  const data = await RegisterUser.where({ email, password });
   return data;
 };
 
