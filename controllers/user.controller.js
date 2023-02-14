@@ -3,11 +3,12 @@ const services = require("../services/userService");
 
 exports.getUser = async (req, res) => {
   try {
+    console.log(req.body);
     const { email, password } = req.body;
     const result = await services.getUserService(email, password);
 
     if (result.length === 0) {
-      return res.status(400).json({
+      return res.status(404).json({
         status: "fail",
         message: "User not found",
       });
