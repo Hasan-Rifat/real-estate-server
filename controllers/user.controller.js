@@ -1,3 +1,4 @@
+const RegisterUser = require("../model/RegisterUser");
 const services = require("../services/userService");
 
 exports.getUser = async (req, res) => {
@@ -28,6 +29,11 @@ exports.getUser = async (req, res) => {
 
 exports.createUser = async (req, res) => {
   try {
+    const userExist = await RegisterUser.where({ email: req.body.email });
+    if (userExist) {
+      console.log(userExist);
+    }
+
     const result = await services.createUserService(req.body);
     res.status(200).json({
       status: "success",
