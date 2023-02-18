@@ -1,11 +1,13 @@
 const services = require("../services/userService");
+const jwt = require("jsonwebtoken");
 
 exports.getUser = async (req, res) => {
   try {
     const { email, password } = req.body;
     const result = await services.getUserService(email, password);
-    var token = jwt.sign(email, process.env.JWT);
-    console.log(token);
+
+    const token = jwt.sign(email, process.env.JWT);
+
     if (result.length === 0) {
       return res.status(404).json({
         status: "fail",
@@ -17,6 +19,7 @@ exports.getUser = async (req, res) => {
       status: "success",
       message: "Data get successfully",
       data: result,
+      token,
     });
   } catch (error) {
     res.status(400).json({
