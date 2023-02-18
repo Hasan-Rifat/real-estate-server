@@ -4,6 +4,7 @@ require("dotenv").config();
 const property = require("./routers/v1/property.router");
 const user = require("./routers/v1/user.router");
 const dbConnect = require("./utils/db.Connect");
+const { verifyJwt } = require("./utils/jwt");
 
 // payment
 const app = express();
@@ -12,6 +13,7 @@ const port = process.env.PORT || 5000;
 // middleware
 app.use(cors());
 app.use(express.json());
+// verifyJwt();
 
 // mongodb connect using mongoose
 dbConnect();

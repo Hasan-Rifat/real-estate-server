@@ -1,10 +1,11 @@
-const RegisterUser = require("../model/RegisterUser");
 const services = require("../services/userService");
 
 exports.getUser = async (req, res) => {
   try {
     const { email, password } = req.body;
     const result = await services.getUserService(email, password);
+    var token = jwt.sign(email, process.env.JWT);
+    console.log(token);
     if (result.length === 0) {
       return res.status(404).json({
         status: "fail",
