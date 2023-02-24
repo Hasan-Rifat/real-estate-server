@@ -4,14 +4,12 @@ exports.getUser = async (req, res) => {
   try {
     const { email, password } = req.body;
     const { data, token } = await services.getUserService(email, password);
-
     if (data.length === 0) {
       return res.status(404).json({
         status: "fail",
         message: "User not found",
       });
     }
-
     res.status(200).json({
       status: "success",
       message: "Data get successfully",
@@ -39,6 +37,7 @@ exports.createUser = async (req, res) => {
   } catch (error) {
     res.status(400).json({
       status: "fail",
+      message: "Data is not inserted",
       error: error.message,
     });
   }
