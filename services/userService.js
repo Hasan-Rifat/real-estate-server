@@ -1,17 +1,20 @@
-const RegisterUser = require("../model/RegisterUser");
+const User = require("../model/User");
+const jwt = require("jsonwebtoken");
 
 exports.getUserService = async (email, password) => {
-  const data = await RegisterUser.where({ email, password });
-  return data;
+  const data = await User.where({ email, password });
+  const token = jwt.sign(email, process.env.JWT);
+  return { data, token };
 };
 
 exports.createUserService = async (data) => {
-  const result = await RegisterUser.create(data);
-  return result;
+  const result = await User.create(data);
+  const token = jwt.sign(data.email, process.env.JWT);
+  return { result, token };
 };
 
 exports.updateUserService = async (userEmail, userData) => {
-  const data = await RegisterUser.updateOne(
+  const data = await User.updateOne(
     { email: userEmail },
     { $set: userData },
     { runValidators: true }
@@ -19,6 +22,6 @@ exports.updateUserService = async (userEmail, userData) => {
   return data;
 };
 exports.deleteUserService = async (userEmail) => {
-  const data = await RegisterUser.deleteOne({ email: userEmail });
+  const data = await User.deleteOne({ email: userEmail });
   return data;
 };

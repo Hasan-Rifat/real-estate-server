@@ -4,7 +4,6 @@ require("dotenv").config();
 const property = require("./routers/v1/property.router");
 const user = require("./routers/v1/user.router");
 const dbConnect = require("./utils/db.Connect");
-const { verifyJwt } = require("./utils/jwt");
 
 // payment
 const app = express();
